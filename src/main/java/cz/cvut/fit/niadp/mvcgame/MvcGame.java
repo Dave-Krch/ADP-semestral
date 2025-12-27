@@ -9,45 +9,26 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
 public class MvcGame {
-    private Position logoPos;
     private GameModel model;
     private GameController controller;
     private GameView view;
 
     public void init() {
-        logoPos = new Position( ((MvcGameConfig.MAX_X/2)-128), ((MvcGameConfig.MAX_Y/2)-128) );
+        model = new GameModel();
+        view = new GameView(model);
+        controller = view.getController();
     }
 
     public void processPressedKeys(List<String> pressedKeysCodes) {
-        for(String code : pressedKeysCodes) {
-            switch(code) {
-                case "UP":
-                    logoPos.setY(logoPos.getY() - 10);
-                    break;
-                case "DOWN":
-                    logoPos.setY(logoPos.getY() + 10);
-                    break;
-                case "LEFT":
-                    logoPos.setX(logoPos.getX() - 10);
-                    break;
-                case "RIGHT":
-                    logoPos.setX(logoPos.getX() + 10);
-                    break;
-                case "ESCAPE":
-                    System.exit(0);
-                    break;
-                default: 
-                    //nothing
-            }
-        }
+        controller.processPressedKeys(pressedKeysCodes);
     }
 
     public void update() {
-        // nothing yet
+        model.update();
     }
 
     public void render(GraphicsContext gr) {
-        gr.drawImage(new Image("icons/fit-icon.png"), logoPos.getX(), logoPos.getY());
+        view.render(gr);
     }
 
     public String getWindowTitle() {
