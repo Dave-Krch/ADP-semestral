@@ -48,14 +48,16 @@ public class MvcGameJavaFxLauncher extends Application {
                     pressedKeysCodes.remove( code );
                 }
         );
+
+        //setting graphics context to the game
+        theMvcGame.setGraphicsContext(gc);
+
         // the game-loop
         new AnimationTimer() {
             public void handle(long currentNanoTime) {
-                // Clear the canvas
-                gc.clearRect(0, 0, winWidth, winHeigth);
                 theMvcGame.processPressedKeys(pressedKeysCodes);
-                theMvcGame.update();
-                theMvcGame.render(gc);
+                //theMvcGame.update();
+                //theMvcGame.render();
             }
         }.start();
         stage.show();

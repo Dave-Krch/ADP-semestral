@@ -24,13 +24,14 @@ public class MvcGame {
         controller.processPressedKeys(pressedKeysCodes);
     }
 
+    /*
     public void update() {
         model.update();
     }
-
-    public void render(GraphicsContext gr) {
-        view.render(gr);
+    public void render() {
+        view.render();
     }
+    */
 
     public String getWindowTitle() {
         return "The NI-ADP MvcGame";
@@ -42,5 +43,9 @@ public class MvcGame {
 
     public int getWindowHeight() {
         return  MvcGameConfig.MAX_Y;
+    }
+
+    public void setGraphicsContext(GraphicsContext gc) {
+        view.setGraphicsContext(gc);
     }
 }

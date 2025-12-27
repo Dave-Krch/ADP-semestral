@@ -36,5 +36,7 @@ public class GameController {
                     //nothing
             }
         }
+
+        model.update();
     }
 }
