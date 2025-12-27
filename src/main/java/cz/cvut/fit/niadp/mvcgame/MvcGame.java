@@ -10,6 +10,9 @@ import javafx.scene.image.Image;
 
 public class MvcGame {
     private Position logoPos;
+    private GameModel model;
+    private GameController controller;
+    private GameView view;
 
     public void init() {
         logoPos = new Position( ((MvcGameConfig.MAX_X/2)-128), ((MvcGameConfig.MAX_Y/2)-128) );
