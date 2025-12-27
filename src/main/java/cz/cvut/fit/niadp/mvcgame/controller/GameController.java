@@ -1,6 +1,6 @@
-package cz.cvut.fit.niadp.mvcgame;
+package cz.cvut.fit.niadp.mvcgame.controller;
 
-import cz.cvut.fit.niadp.mvcgame.config.MvcGameConfig;
+import cz.cvut.fit.niadp.mvcgame.model.GameModel;
 import cz.cvut.fit.niadp.mvcgame.model.Position;
 
 import java.util.List;
@@ -16,7 +16,6 @@ public class GameController {
 
     public void processPressedKeys(List<String> pressedKeysCodes) {
         for(String code : pressedKeysCodes) {
-            Position logoPos = model.getLogoPos();
             switch(code) {
                 case KEY_UP:
                     model.moveLogoUp();
@@ -25,10 +24,10 @@ public class GameController {
                     model.moveLogoDown();
                     break;
                 case KEY_LEFT:
-                    model.moveLogoLeft();
+                    //model.moveLogoLeft();
                     break;
                 case KEY_RIGHT:
-                    model.moveLogoRight();
+                    //model.moveLogoRight();
                     break;
                 case KEY_EXIT:
                     System.exit(0);

@@ -1,10 +1,12 @@
-package cz.cvut.fit.niadp.mvcgame;
+package cz.cvut.fit.niadp.mvcgame.view;
 
+import cz.cvut.fit.niadp.mvcgame.controller.GameController;
+import cz.cvut.fit.niadp.mvcgame.model.GameModel;
 import cz.cvut.fit.niadp.mvcgame.model.Position;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
-import static cz.cvut.fit.niadp.mvcgame.config.MvcGameResources.LOGO_RESOURCE;
+import static cz.cvut.fit.niadp.mvcgame.config.MvcGameResources.CANON_RESOURCE;
 
 public class GameView {
 
@@ -20,7 +22,7 @@ public class GameView {
     }
 
     public void render(GraphicsContext gr) {
-        Position pos = model.getLogoPos();
-        gr.drawImage(new Image(LOGO_RESOURCE), pos.getX(), pos.getY());
+        Position pos = model.getCanonPosition();
+        gr.drawImage(new Image(CANON_RESOURCE), pos.getX(), pos.getY());
     }
 }

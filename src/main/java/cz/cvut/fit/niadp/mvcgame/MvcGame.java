@@ -3,10 +3,11 @@ package cz.cvut.fit.niadp.mvcgame;
 import java.util.List;
 
 import cz.cvut.fit.niadp.mvcgame.config.MvcGameConfig;
-import cz.cvut.fit.niadp.mvcgame.model.Position;
+import cz.cvut.fit.niadp.mvcgame.controller.GameController;
 // in the future, use Bridge to remove this dependency
+import cz.cvut.fit.niadp.mvcgame.model.GameModel;
+import cz.cvut.fit.niadp.mvcgame.view.GameView;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.image.Image;
 
 public class MvcGame {
     private GameModel model;
