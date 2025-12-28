@@ -7,24 +7,24 @@ public class Vector {
     public Vector() {
     }
 
-    public Vector(int posX, int posY) {
-        this.dX = posX;
-        this.dY = posY;
+    public Vector(int dX, int dY) {
+        this.dX = dX;
+        this.dY = dY;
     }
 
-    public int getX() {
+    public int getDX() {
         return dX;
     }
 
-    public int getY() {
+    public int getDY() {
         return dY;
     }
 
-    public void setY(int y) {
-        this.dX = y;
+    public void setDX(int dX) {
+        this.dX = dX;
     }
 
-    public void setX(int x) {
-        this.dY = x;
+    public void setDY(int dY) {
+        this.dY = dY;
     }
 }
