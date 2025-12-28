@@ -28,6 +28,7 @@ public class GameView implements IObserver {
         if (gameGraphics != null) {
             gameGraphics.clear();
             model.getGameObjects().forEach(gameObject -> gameObject.acceptVisitor(gameDrawer));
+            model.getGameInfo().acceptVisitor(gameDrawer);
         }
     }
 

@@ -34,5 +34,7 @@ public class GameDrawer implements IVisitor {
     }
 
     //TODO: Vypsat game info
-    private void drawGameInfo(GameInfo gameInfo) {}
+    private void drawGameInfo(GameInfo gameInfo) {
+        gameGraphics.drawText("" + gameInfo.getMissilesShot(), gameInfo.getPosition());
+    }
 }

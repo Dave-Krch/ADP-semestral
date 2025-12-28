@@ -1,6 +1,7 @@
 package cz.cvut.fit.niadp.mvcgame.model;
 
 import cz.cvut.fit.niadp.mvcgame.command.AbstractGameCommand;
+import cz.cvut.fit.niadp.mvcgame.model.gameObjects.GameInfo;
 import cz.cvut.fit.niadp.mvcgame.model.gameObjects.GameObject;
 import cz.cvut.fit.niadp.mvcgame.observer.IObservable;
 import cz.cvut.fit.niadp.mvcgame.strategy.IMovingStrategy;
@@ -18,6 +19,9 @@ public interface IGameModel extends IObservable {
     void cannonPowerDown();
     void cannonShoot();
     List<GameObject> getGameObjects();
+
+    GameInfo getGameInfo();
+
     IMovingStrategy getMovingStrategy();
     void toggleMovingStrategy();
     void toggleShootingMode();

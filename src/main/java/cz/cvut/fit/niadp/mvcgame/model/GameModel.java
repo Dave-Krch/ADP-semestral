@@ -6,6 +6,7 @@ import cz.cvut.fit.niadp.mvcgame.command.AbstractGameCommand;
 import cz.cvut.fit.niadp.mvcgame.config.MvcGameConfig;
 import cz.cvut.fit.niadp.mvcgame.model.gameObjects.AbsCannon;
 import cz.cvut.fit.niadp.mvcgame.model.gameObjects.AbsMissile;
+import cz.cvut.fit.niadp.mvcgame.model.gameObjects.GameInfo;
 import cz.cvut.fit.niadp.mvcgame.model.gameObjects.GameObject;
 import cz.cvut.fit.niadp.mvcgame.observer.IObserver;
 import cz.cvut.fit.niadp.mvcgame.strategy.IMovingStrategy;
@@ -25,6 +26,7 @@ import java.util.stream.Stream;
 public class GameModel implements IGameModel {
 
     private final AbsCannon cannon;
+    private final GameInfo gameInfo;
     private final List<AbsMissile> missiles;
     private final Set<IObserver> observers;
     private final IGameObjectsFactory gameObjectsFactory;
@@ -36,6 +38,7 @@ public class GameModel implements IGameModel {
     public GameModel() {
         gameObjectsFactory = new GameObjectsFactoryA(this);
         cannon = gameObjectsFactory.createCannon();
+        gameInfo = new GameInfo(new Position(MvcGameConfig.GAMEINF_POS_X, MvcGameConfig.GAMEINF_POS_Y));
         observers = new HashSet<>();
         missiles = new ArrayList<>();
         movingStrategy = new SimpleMovingStrategy();
@@ -105,11 +108,16 @@ public class GameModel implements IGameModel {
 
     public void cannonShoot() {
         missiles.addAll(cannon.shoot());
+        gameInfo.inc();
         notifyObservers();
     }
 
     public List<GameObject> getGameObjects() {
         return Stream.concat(Stream.of(cannon), missiles.stream()).toList();
+    }
+
+    public GameInfo getGameInfo() {
+        return gameInfo;
     }
 
     @Override

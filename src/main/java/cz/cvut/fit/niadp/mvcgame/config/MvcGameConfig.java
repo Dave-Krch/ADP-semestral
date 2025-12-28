@@ -8,6 +8,8 @@ public class MvcGameConfig {
     public static final int MOVE_STEP = 10;
     public static final int CANNON_POS_X = 300;
     public static final int CANNON_POS_Y = MAX_Y / 2;
+    public static final int GAMEINF_POS_X = MAX_X - 300;
+    public static final int GAMEINF_POS_Y = 200;
     public static final double INIT_ANGLE = 0;
     public static final int INIT_POWER = 10;
     public static final double ANGLE_STEP = Math.PI / 18;
