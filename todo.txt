@@ -2,4 +2,11 @@
 
 Dodelat placeny mod pro dalsi verzi ptaka?
 
-aa
+Testy
+ - reflectionTest - jak testovat private metody?
+
+ Bug v aim canon -> muze se strilet dozadu a nemazou se rakety
+
+ vzory - Prototype, builder, iterator
+
+ funkce - cokoliv

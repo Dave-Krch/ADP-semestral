@@ -1,12 +1,9 @@
 package cz.cvut.fit.niadp.mvcgame.visitor;
 
 import cz.cvut.fit.niadp.mvcgame.bridge.IGameGraphics;
-import cz.cvut.fit.niadp.mvcgame.model.gameObjects.AbsCannon;
-import cz.cvut.fit.niadp.mvcgame.model.gameObjects.AbsMissile;
-import cz.cvut.fit.niadp.mvcgame.model.gameObjects.GameObject;
+import cz.cvut.fit.niadp.mvcgame.model.gameObjects.*;
 
-import static cz.cvut.fit.niadp.mvcgame.config.MvcGameResources.CANNON_RESOURCE;
-import static cz.cvut.fit.niadp.mvcgame.config.MvcGameResources.MISSILE_RESOURCE;
+import static cz.cvut.fit.niadp.mvcgame.config.MvcGameResources.*;
 
 public class GameDrawer implements IVisitor {
 
@@ -26,7 +23,16 @@ public class GameDrawer implements IVisitor {
         drawGameObject(missile, MISSILE_RESOURCE);
     }
 
+    @Override
+    public void visitEnemy(AbsEnemy enemy) { drawGameObject(enemy, ENEMY_1_RESOURCE); }
+
+    @Override
+    public void visitGameInfo(GameInfo gameInfo) { drawGameInfo(gameInfo); }
+
     private void drawGameObject(GameObject gameObject, String resource) {
         gameGraphics.drawImage(resource, gameObject.getPosition());
     }
+
+    //TODO: Vypsat game info
+    private void drawGameInfo(GameInfo gameInfo) {}
 }
