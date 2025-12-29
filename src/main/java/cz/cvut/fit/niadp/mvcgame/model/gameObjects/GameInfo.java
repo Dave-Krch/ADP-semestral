@@ -3,29 +3,33 @@ package cz.cvut.fit.niadp.mvcgame.model.gameObjects;
 import cz.cvut.fit.niadp.mvcgame.model.Position;
 import cz.cvut.fit.niadp.mvcgame.visitor.IVisitor;
 
-public class GameInfo extends GameObject{
-
-    public Position scorePos;
-    public Position shotCountPos;
+public class GameInfo extends GameObject  {
+    private int shotCount = 0;
+    private int score = 0;
 
     public GameInfo(Position position) {
         this.position = position;
-
-
     }
 
-    private int missilesShot = 0;
-
-    private int score = 0;
-
-    public void incMissilesShot() { missilesShot++; }
-
-    public int getMissilesShot() {
-        return missilesShot;
+    public GameInfo(Position position, int score, int shotCount) {
+        this.position = position;
+        this.score = score;
+        this.shotCount = shotCount;
     }
 
-    public void setMissilesShot(int missilesShot) {
-        this.missilesShot = missilesShot;
+    public GameInfo clone() {
+        return new GameInfo(this.position, this.score, this.shotCount);
+    }
+
+
+    public void incMissilesShot() { shotCount++; }
+
+    public int getShotCount() {
+        return shotCount;
+    }
+
+    public void setShotCount(int shotCount) {
+        this.shotCount = shotCount;
     }
 
     public int getScore() {
@@ -42,4 +46,6 @@ public class GameInfo extends GameObject{
 
     @Override
     public void acceptVisitor(IVisitor visitor) { visitor.visitGameInfo(this); }
+
+
 }

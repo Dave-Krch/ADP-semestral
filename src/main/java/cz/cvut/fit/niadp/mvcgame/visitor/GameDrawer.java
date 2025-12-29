@@ -40,6 +40,7 @@ public class GameDrawer implements IVisitor {
     }
 
     private void drawGameInfo(GameInfo gameInfo) {
-        gameGraphics.drawText("Score:        " + gameInfo.getScore(), gameInfo.getPosition());
+        gameGraphics.drawText(    "Score:         " + gameInfo.getScore() +
+                                     "\nShot count: " + gameInfo.getShotCount(), gameInfo.getPosition());
     }
 }

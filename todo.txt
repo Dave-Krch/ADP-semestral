@@ -30,7 +30,7 @@ funkce:
 
  Vytvořit zbylé Commandy pro ovládání Modelu            DONE
 
- Vylepšit ukládání věcí do Mementa (pro krok zpět)
+ Vylepšit ukládání věcí do Mementa (pro krok zpět)      DONE castence
 
  Přidat visit metody pro nepřátele, kolize a herní info             DONE
 

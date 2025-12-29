@@ -23,7 +23,7 @@ import java.util.stream.Stream;
 public class GameModel implements IGameModel {
 
     private final AbsCannon cannon;
-    private final GameInfo gameInfo;
+    private GameInfo gameInfo;
     private final List<AbsMissile> missiles;
     private List<AbsEnemy> enemies;
     private final Set<IObserver> observers;
@@ -186,10 +186,7 @@ public class GameModel implements IGameModel {
 
         private List<AbsEnemy> enemies;
 
-        //game info
-        private int shotCount;
-        private int score;
-
+        private GameInfo gameInfo;
 
         // game snapshot (gameobjects, score, strategy, cannon state)
     }
@@ -204,8 +201,7 @@ public class GameModel implements IGameModel {
             gameModelSnapshot.enemies.add(enemy.clone());
         }
 
-        gameModelSnapshot.shotCount = gameInfo.getMissilesShot();
-        gameModelSnapshot.score = gameInfo.getScore();
+        gameModelSnapshot.gameInfo = gameInfo.clone();
         return gameModelSnapshot;
     }
 
@@ -216,8 +212,7 @@ public class GameModel implements IGameModel {
 
         enemies = gameModelSnapshot.enemies;
 
-        gameInfo.setMissilesShot(gameModelSnapshot.shotCount);
-        gameInfo.setScore(gameModelSnapshot.score);
+        gameInfo = gameModelSnapshot.gameInfo;
     }
 
     @Override
