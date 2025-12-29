@@ -22,4 +22,9 @@ public class EnemyStandardA extends AbsEnemy {
     public int getScoreValue() {
         return MvcGameConfig.ENEMY_STANDARD_VALUE;
     }
+
+    @Override
+    public AbsEnemy clone() {
+        return new EnemyStandardA(this.position);
+    }
 }

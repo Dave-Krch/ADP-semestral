@@ -12,6 +12,10 @@ public class Position {
 		this.dimY = posY;
 	}
 
+    public Position clone() {
+        return new Position(this.dimX, this.dimY);
+    }
+
 	public int getX() {
 		return dimX;
 	}

@@ -14,6 +14,10 @@ public class Collider {
         this.bottomRight = new Position(topLeft.getX() + collWidth, topLeft.getY() + collHeight);
     }
 
+    public Collider clone() {
+        return new Collider(new Position(topLeft.getX(), topLeft.getY()), new Position(bottomRight.getX(), bottomRight.getY()));
+    }
+
     public boolean collided(Collider other) {
         return this.topLeft.getX() <= other.bottomRight.getX() &&
                 this.bottomRight.getX() >= other.topLeft.getX() &&

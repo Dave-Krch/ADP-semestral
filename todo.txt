@@ -14,6 +14,7 @@ Testy
 
 vzory:
  builder na model
+ protoype - position, collider, enemy, gameInfo
 
 funkce:
     velky enemies
@@ -23,15 +24,15 @@ funkce:
 
  Přidat nepřátele DONE
 
- Přidat kolize (po zásahu nepřátele raketou) DONE
+ Přidat kolize (po zásahu nepřátele raketou)            DONE
 
- Přidat GameInfo (text zobrazující skóre a další informace jako například úhel kanónu, sílu kanónu, mód kanónu atd.)  DONE
+ Přidat GameInfo (text zobrazující skóre a další informace jako například úhel kanónu, sílu kanónu, mód kanónu atd.)            DONE
 
- Vytvořit zbylé Commandy pro ovládání Modelu DONE
+ Vytvořit zbylé Commandy pro ovládání Modelu            DONE
 
  Vylepšit ukládání věcí do Mementa (pro krok zpět)
 
- Přidat visit metody pro nepřátele, kolize a herní info DONE
+ Přidat visit metody pro nepřátele, kolize a herní info             DONE
 
  Vytvořit 3 testy (tak aby bylo celkem 5 testů a alespoň v dvou testech bylo použito Mockování)
 

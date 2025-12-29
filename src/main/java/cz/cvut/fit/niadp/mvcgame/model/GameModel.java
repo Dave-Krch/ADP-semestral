@@ -25,7 +25,7 @@ public class GameModel implements IGameModel {
     private final AbsCannon cannon;
     private final GameInfo gameInfo;
     private final List<AbsMissile> missiles;
-    private final List<AbsEnemy> enemies;
+    private List<AbsEnemy> enemies;
     private final Set<IObserver> observers;
     private final IGameObjectsFactory gameObjectsFactory;
     private IMovingStrategy movingStrategy;
@@ -184,6 +184,8 @@ public class GameModel implements IGameModel {
         private int cannonPositionX;
         private int cannonPositionY;
 
+        private List<AbsEnemy> enemies;
+
         //game info
         private int shotCount;
         private int score;
@@ -197,6 +199,11 @@ public class GameModel implements IGameModel {
         gameModelSnapshot.cannonPositionX = cannon.getPosition().getX();
         gameModelSnapshot.cannonPositionY = cannon.getPosition().getY();
 
+        gameModelSnapshot.enemies = new ArrayList<>();
+        for(AbsEnemy enemy: enemies) {
+            gameModelSnapshot.enemies.add(enemy.clone());
+        }
+
         gameModelSnapshot.shotCount = gameInfo.getMissilesShot();
         gameModelSnapshot.score = gameInfo.getScore();
         return gameModelSnapshot;
@@ -206,6 +213,8 @@ public class GameModel implements IGameModel {
         Memento gameModelSnapshot = (Memento) memento;
         cannon.getPosition().setX((gameModelSnapshot).cannonPositionX);
         cannon.getPosition().setY((gameModelSnapshot).cannonPositionY);
+
+        enemies = gameModelSnapshot.enemies;
 
         gameInfo.setMissilesShot(gameModelSnapshot.shotCount);
         gameInfo.setScore(gameModelSnapshot.score);

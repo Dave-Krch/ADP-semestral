@@ -21,4 +21,9 @@ public class EnemyLargeA extends AbsEnemy {
     public int getScoreValue() {
         return MvcGameConfig.ENEMY_LARGE_VALUE;
     }
+
+    @Override
+    public AbsEnemy clone() {
+        return new EnemyLargeA(this.position.clone());
+    }
 }
