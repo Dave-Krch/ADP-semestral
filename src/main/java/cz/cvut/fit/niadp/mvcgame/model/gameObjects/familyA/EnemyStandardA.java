@@ -18,4 +18,8 @@ public class EnemyStandardA extends AbsEnemy {
         visitor.visitNormalEnemy(this);
     }
 
+    @Override
+    public int getScoreValue() {
+        return MvcGameConfig.ENEMY_STANDARD_VALUE;
+    }
 }

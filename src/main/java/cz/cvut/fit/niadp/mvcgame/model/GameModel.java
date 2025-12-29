@@ -71,6 +71,7 @@ public class GameModel implements IGameModel {
         for (AbsMissile missile : missiles) {
             for (AbsEnemy enemy : enemies) {
                 if(missile.getCollider().collided(enemy.getCollider())) {
+                    gameInfo.addScore(enemy.getScoreValue());
                     missilesToRemove.add(missile);
                     enemiesToRemove.add(enemy);
                 }

@@ -18,6 +18,7 @@ vzory:
 funkce:
     velky enemies
     random rozmisteni enemies - pomoci builderu
+    score
 
 
  Přidat nepřátele DONE
@@ -26,7 +27,7 @@ funkce:
 
  Přidat GameInfo (text zobrazující skóre a další informace jako například úhel kanónu, sílu kanónu, mód kanónu atd.)  DONE
 
- Vytvořit zbylé Commandy pro ovládání Modelu
+ Vytvořit zbylé Commandy pro ovládání Modelu DONE
 
  Vylepšit ukládání věcí do Mementa (pro krok zpět)
 

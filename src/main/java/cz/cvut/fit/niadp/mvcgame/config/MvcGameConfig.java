@@ -28,4 +28,6 @@ public class MvcGameConfig {
     public static final int ENEMY_NORMAL_COLLIDER_WIDTH = 30;
     public static final int ENEMY_LARGE_COLLIDER_HEIGHT = 40;
     public static final int ENEMY_LARGE_COLLIDER_WIDTH = 45;
+    public static final int ENEMY_STANDARD_VALUE = 200;
+    public static final int ENEMY_LARGE_VALUE = 500;
 }

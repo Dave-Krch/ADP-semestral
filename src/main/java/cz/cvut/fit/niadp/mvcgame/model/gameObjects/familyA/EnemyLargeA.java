@@ -17,5 +17,8 @@ public class EnemyLargeA extends AbsEnemy {
         visitor.visitLargeEnemy(this);
     }
 
-
+    @Override
+    public int getScoreValue() {
+        return MvcGameConfig.ENEMY_LARGE_VALUE;
+    }
 }

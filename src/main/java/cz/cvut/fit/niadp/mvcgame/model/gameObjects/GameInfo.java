@@ -5,8 +5,13 @@ import cz.cvut.fit.niadp.mvcgame.visitor.IVisitor;
 
 public class GameInfo extends GameObject{
 
+    public Position scorePos;
+    public Position shotCountPos;
+
     public GameInfo(Position position) {
         this.position = position;
+
+
     }
 
     private int missilesShot = 0;
@@ -29,6 +34,10 @@ public class GameInfo extends GameObject{
 
     public void setScore(int score) {
         this.score = score;
+    }
+
+    public void addScore(int count) {
+        this.score += count;
     }
 
     @Override

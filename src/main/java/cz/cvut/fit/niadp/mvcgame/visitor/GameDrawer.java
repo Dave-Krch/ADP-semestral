@@ -1,7 +1,10 @@
 package cz.cvut.fit.niadp.mvcgame.visitor;
 
 import cz.cvut.fit.niadp.mvcgame.bridge.IGameGraphics;
+import cz.cvut.fit.niadp.mvcgame.model.Position;
+import cz.cvut.fit.niadp.mvcgame.model.Vector;
 import cz.cvut.fit.niadp.mvcgame.model.gameObjects.*;
+import javafx.geometry.Pos;
 
 import static cz.cvut.fit.niadp.mvcgame.config.MvcGameResources.*;
 
@@ -36,8 +39,7 @@ public class GameDrawer implements IVisitor {
         gameGraphics.drawImage(resource, gameObject.getPosition());
     }
 
-    //TODO: Vypsat game info
     private void drawGameInfo(GameInfo gameInfo) {
-        gameGraphics.drawText("" + gameInfo.getMissilesShot(), gameInfo.getPosition());
+        gameGraphics.drawText("Score:        " + gameInfo.getScore(), gameInfo.getPosition());
     }
 }
