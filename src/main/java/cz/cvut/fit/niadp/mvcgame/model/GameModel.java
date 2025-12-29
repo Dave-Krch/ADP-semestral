@@ -108,7 +108,7 @@ public class GameModel implements IGameModel {
 
     public void cannonShoot() {
         missiles.addAll(cannon.shoot());
-        gameInfo.inc();
+        gameInfo.incMissilesShot();
         notifyObservers();
     }
 
@@ -158,6 +158,12 @@ public class GameModel implements IGameModel {
     private static class Memento {
         private int cannonPositionX;
         private int cannonPositionY;
+
+        //game info
+        private int shotCount;
+        private int score;
+
+
         // game snapshot (gameobjects, score, strategy, cannon state)
     }
 
@@ -165,6 +171,9 @@ public class GameModel implements IGameModel {
         Memento gameModelSnapshot = new Memento();
         gameModelSnapshot.cannonPositionX = cannon.getPosition().getX();
         gameModelSnapshot.cannonPositionY = cannon.getPosition().getY();
+
+        gameModelSnapshot.shotCount = gameInfo.getMissilesShot();
+        gameModelSnapshot.score = gameInfo.getScore();
         return gameModelSnapshot;
     }
 
@@ -172,6 +181,9 @@ public class GameModel implements IGameModel {
         Memento gameModelSnapshot = (Memento) memento;
         cannon.getPosition().setX((gameModelSnapshot).cannonPositionX);
         cannon.getPosition().setY((gameModelSnapshot).cannonPositionY);
+
+        gameInfo.setMissilesShot(gameModelSnapshot.shotCount);
+        gameInfo.setScore(gameModelSnapshot.score);
     }
 
     @Override

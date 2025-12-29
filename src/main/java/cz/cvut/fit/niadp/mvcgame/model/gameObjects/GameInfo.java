@@ -11,10 +11,25 @@ public class GameInfo extends GameObject{
 
     private int missilesShot = 0;
 
-    public void inc() { missilesShot++; }
-    public void dec() { missilesShot--; }
+    private int score = 0;
 
-    public int getMissilesShot() { return missilesShot; }
+    public void incMissilesShot() { missilesShot++; }
+
+    public int getMissilesShot() {
+        return missilesShot;
+    }
+
+    public void setMissilesShot(int missilesShot) {
+        this.missilesShot = missilesShot;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
 
     @Override
     public void acceptVisitor(IVisitor visitor) { visitor.visitGameInfo(this); }
