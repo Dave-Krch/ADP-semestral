@@ -12,6 +12,13 @@ Testy
  funkce - cokoliv
 
 
+vzory:
+ builder na model
+
+funkce:
+    velky enemies
+    random rozmisteni enemies - pomoci builderu
+
 
  Přidat nepřátele
 

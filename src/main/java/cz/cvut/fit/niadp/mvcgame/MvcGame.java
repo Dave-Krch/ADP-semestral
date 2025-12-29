@@ -3,6 +3,9 @@ package cz.cvut.fit.niadp.mvcgame;
 import java.util.List;
 
 import cz.cvut.fit.niadp.mvcgame.bridge.IGameGraphics;
+import cz.cvut.fit.niadp.mvcgame.builder.IModelBuilder;
+import cz.cvut.fit.niadp.mvcgame.builder.ModelBuilderRandomPossitions;
+import cz.cvut.fit.niadp.mvcgame.builder.ModelBuilderStandard;
 import cz.cvut.fit.niadp.mvcgame.config.MvcGameConfig;
 import cz.cvut.fit.niadp.mvcgame.controller.GameController;
 import cz.cvut.fit.niadp.mvcgame.memento.CareTaker;
@@ -17,7 +20,12 @@ public class MvcGame {
     private GameView view;
 
     public void init() {
-        model = new GameModelProxy(new GameModel());
+        //Using builder to build model <- passing only counts of enemies, builder handles other logic
+        IModelBuilder modelBuilder = new ModelBuilderRandomPossitions();
+        modelBuilder.createNormalEnemies(MvcGameConfig.STARTING_NORMAL_ENEMIES);
+        modelBuilder.createLargeEnemies(MvcGameConfig.STARTING_LARGE_ENEMIES);
+        model = new GameModelProxy(modelBuilder.getProduct());
+
         view = new GameView(model);
         controller = view.getController();
         CareTaker.getInstance().setModel(model);

@@ -18,4 +18,7 @@ public class MvcGameConfig {
     public static final int MAGIC_TIME_CONST = 100;
     public static final int MIN_POWER = 1;
     public static final int MAX_POWER = 50;
+
+    public static final int STARTING_NORMAL_ENEMIES = 5;
+    public static final int STARTING_LARGE_ENEMIES = 2;
 }

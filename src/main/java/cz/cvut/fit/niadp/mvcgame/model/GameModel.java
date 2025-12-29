@@ -47,6 +47,10 @@ public class GameModel implements IGameModel {
         executedCommands = new Stack<>();
     }
 
+    public void AddEnemies() {
+
+    }
+
     public void update() {
         moveMissiles();
         executeCommands();
