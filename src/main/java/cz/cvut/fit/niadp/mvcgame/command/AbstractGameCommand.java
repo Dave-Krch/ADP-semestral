@@ -4,7 +4,7 @@ import cz.cvut.fit.niadp.mvcgame.model.IGameModel;
 
 public abstract class AbstractGameCommand {
 
-    IGameModel model;
+    protected IGameModel model;
     Object memento;
 
     protected abstract void execute();

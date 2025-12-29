@@ -1,6 +1,6 @@
 package cz.cvut.fit.niadp.mvcgame.model;
 
-import cz.cvut.fit.niadp.mvcgame.command.MoveCannonUpCommand;
+import cz.cvut.fit.niadp.mvcgame.command.cannonCommannds.MoveCannonUpCommand;
 import cz.cvut.fit.niadp.mvcgame.config.MvcGameConfig;
 import org.junit.Assert;
 import org.junit.Test;

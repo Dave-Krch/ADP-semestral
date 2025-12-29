@@ -1,5 +1,6 @@
-package cz.cvut.fit.niadp.mvcgame.command;
+package cz.cvut.fit.niadp.mvcgame.command.cannonCommannds;
 
+import cz.cvut.fit.niadp.mvcgame.command.AbstractGameCommand;
 import cz.cvut.fit.niadp.mvcgame.model.IGameModel;
 
 public class MoveCannonUpCommand extends AbstractGameCommand {
