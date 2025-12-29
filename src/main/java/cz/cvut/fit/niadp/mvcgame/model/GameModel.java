@@ -4,10 +4,7 @@ import cz.cvut.fit.niadp.mvcgame.abstractFactory.GameObjectsFactoryA;
 import cz.cvut.fit.niadp.mvcgame.abstractFactory.IGameObjectsFactory;
 import cz.cvut.fit.niadp.mvcgame.command.AbstractGameCommand;
 import cz.cvut.fit.niadp.mvcgame.config.MvcGameConfig;
-import cz.cvut.fit.niadp.mvcgame.model.gameObjects.AbsCannon;
-import cz.cvut.fit.niadp.mvcgame.model.gameObjects.AbsMissile;
-import cz.cvut.fit.niadp.mvcgame.model.gameObjects.GameInfo;
-import cz.cvut.fit.niadp.mvcgame.model.gameObjects.GameObject;
+import cz.cvut.fit.niadp.mvcgame.model.gameObjects.*;
 import cz.cvut.fit.niadp.mvcgame.observer.IObserver;
 import cz.cvut.fit.niadp.mvcgame.strategy.IMovingStrategy;
 import cz.cvut.fit.niadp.mvcgame.strategy.RandomMovingStrategy;
@@ -28,6 +25,7 @@ public class GameModel implements IGameModel {
     private final AbsCannon cannon;
     private final GameInfo gameInfo;
     private final List<AbsMissile> missiles;
+    private final List<AbsEnemy> enemies;
     private final Set<IObserver> observers;
     private final IGameObjectsFactory gameObjectsFactory;
     private IMovingStrategy movingStrategy;
@@ -41,6 +39,7 @@ public class GameModel implements IGameModel {
         gameInfo = new GameInfo(new Position(MvcGameConfig.GAMEINF_POS_X, MvcGameConfig.GAMEINF_POS_Y));
         observers = new HashSet<>();
         missiles = new ArrayList<>();
+        enemies = new ArrayList<>();
         movingStrategy = new SimpleMovingStrategy();
 
         unexecutedCommands = new LinkedBlockingQueue<>();
@@ -122,6 +121,11 @@ public class GameModel implements IGameModel {
 
     public GameInfo getGameInfo() {
         return gameInfo;
+    }
+
+    @Override
+    public List<AbsEnemy> getEnemies() {
+        return enemies;
     }
 
     @Override

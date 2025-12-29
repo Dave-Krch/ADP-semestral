@@ -24,7 +24,10 @@ public class GameDrawer implements IVisitor {
     }
 
     @Override
-    public void visitEnemy(AbsEnemy enemy) { drawGameObject(enemy, ENEMY_1_RESOURCE); }
+    public void visitNormalEnemy(AbsEnemy enemy) { drawGameObject(enemy, ENEMY_1_RESOURCE); }
+
+    @Override
+    public void visitLargeEnemy(AbsEnemy enemy) { drawGameObject(enemy, ENEMY_1_RESOURCE); }
 
     @Override
     public void visitGameInfo(GameInfo gameInfo) { drawGameInfo(gameInfo); }

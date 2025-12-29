@@ -4,6 +4,7 @@ import cz.cvut.fit.niadp.mvcgame.command.AbstractGameCommand;
 import cz.cvut.fit.niadp.mvcgame.model.GameModel;
 import cz.cvut.fit.niadp.mvcgame.model.IGameModel;
 import cz.cvut.fit.niadp.mvcgame.model.Position;
+import cz.cvut.fit.niadp.mvcgame.model.gameObjects.AbsEnemy;
 import cz.cvut.fit.niadp.mvcgame.model.gameObjects.GameInfo;
 import cz.cvut.fit.niadp.mvcgame.model.gameObjects.GameObject;
 import cz.cvut.fit.niadp.mvcgame.observer.IObserver;
@@ -86,6 +87,9 @@ public class GameModelProxy implements IGameModel {
 
     @Override
     public GameInfo getGameInfo() { return subject.getGameInfo(); }
+
+    @Override
+    public List<AbsEnemy> getEnemies() { return subject.getEnemies(); }
 
     @Override
     public IMovingStrategy getMovingStrategy() {

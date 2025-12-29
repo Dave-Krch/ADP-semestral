@@ -1,6 +1,7 @@
 package cz.cvut.fit.niadp.mvcgame.model;
 
 import cz.cvut.fit.niadp.mvcgame.command.AbstractGameCommand;
+import cz.cvut.fit.niadp.mvcgame.model.gameObjects.AbsEnemy;
 import cz.cvut.fit.niadp.mvcgame.model.gameObjects.GameInfo;
 import cz.cvut.fit.niadp.mvcgame.model.gameObjects.GameObject;
 import cz.cvut.fit.niadp.mvcgame.observer.IObservable;
@@ -21,6 +22,8 @@ public interface IGameModel extends IObservable {
     List<GameObject> getGameObjects();
 
     GameInfo getGameInfo();
+
+    List<AbsEnemy> getEnemies();
 
     IMovingStrategy getMovingStrategy();
     void toggleMovingStrategy();

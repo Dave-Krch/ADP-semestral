@@ -2,6 +2,8 @@ package cz.cvut.fit.niadp.mvcgame.builder;
 
 import cz.cvut.fit.niadp.mvcgame.model.GameModel;
 import cz.cvut.fit.niadp.mvcgame.model.IGameModel;
+import cz.cvut.fit.niadp.mvcgame.model.Position;
+import cz.cvut.fit.niadp.mvcgame.model.gameObjects.familyA.EnemyStandardA;
 
 public class ModelBuilderRandomPossitions implements IModelBuilder {
 
@@ -18,7 +20,7 @@ public class ModelBuilderRandomPossitions implements IModelBuilder {
 
     @Override
     public void createNormalEnemies(int count) {
-        //todo:
+        model.getEnemies().add(new EnemyStandardA(new Position(500, 500)));
     }
 
     @Override
