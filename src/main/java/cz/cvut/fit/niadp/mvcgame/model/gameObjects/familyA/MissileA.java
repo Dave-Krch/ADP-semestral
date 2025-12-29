@@ -18,4 +18,6 @@ public class MissileA extends AbsMissile {
     public void move() {
         movingStrategy.updatePosition(this);
     }
+
+
 }

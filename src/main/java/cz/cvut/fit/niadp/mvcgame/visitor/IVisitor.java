@@ -5,8 +5,6 @@ import cz.cvut.fit.niadp.mvcgame.model.gameObjects.AbsEnemy;
 import cz.cvut.fit.niadp.mvcgame.model.gameObjects.AbsMissile;
 import cz.cvut.fit.niadp.mvcgame.model.gameObjects.GameInfo;
 
-import static cz.cvut.fit.niadp.mvcgame.config.MvcGameResources.ENEMY_1_RESOURCE;
-
 public interface IVisitor {
     void visitCannon(AbsCannon cannon);
     void visitMissile(AbsMissile missile);

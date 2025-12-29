@@ -3,6 +3,7 @@ package cz.cvut.fit.niadp.mvcgame.builder;
 import cz.cvut.fit.niadp.mvcgame.model.GameModel;
 import cz.cvut.fit.niadp.mvcgame.model.IGameModel;
 import cz.cvut.fit.niadp.mvcgame.model.Position;
+import cz.cvut.fit.niadp.mvcgame.model.gameObjects.familyA.EnemyLargeA;
 import cz.cvut.fit.niadp.mvcgame.model.gameObjects.familyA.EnemyStandardA;
 
 public class ModelBuilderRandomPossitions implements IModelBuilder {
@@ -25,7 +26,7 @@ public class ModelBuilderRandomPossitions implements IModelBuilder {
 
     @Override
     public void createLargeEnemies(int count) {
-        //todo:
+        model.getEnemies().add(new EnemyLargeA(new Position(600, 600)));
     }
 
     @Override
