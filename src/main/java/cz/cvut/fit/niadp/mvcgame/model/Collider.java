@@ -1,4 +1,4 @@
-﻿package cz.cvut.fit.niadp.mvcgame.model;
+package cz.cvut.fit.niadp.mvcgame.model;
 
 public class Collider {
     private final Position topLeft;

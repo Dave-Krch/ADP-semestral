@@ -46,12 +46,9 @@ public class GameModel implements IGameModel {
         executedCommands = new Stack<>();
     }
 
-    public void AddEnemies() {
-
-    }
-
     public void update() {
         moveMissiles();
+        checkCollisions();
         executeCommands();
     }
 
@@ -65,6 +62,25 @@ public class GameModel implements IGameModel {
         missiles.forEach(AbsMissile::move);
         destroyMissiles();
         notifyObservers();
+    }
+
+    private void checkCollisions() {
+        Set<AbsMissile> missilesToRemove = new HashSet<>();
+        Set<AbsEnemy> enemiesToRemove = new HashSet<>();
+
+        for (AbsMissile missile : missiles) {
+            for (AbsEnemy enemy : enemies) {
+                if(missile.getCollider().collided(enemy.getCollider())) {
+                    missilesToRemove.add(missile);
+                    enemiesToRemove.add(enemy);
+                }
+            }
+        }
+
+        if(!missilesToRemove.isEmpty() || !enemiesToRemove.isEmpty()) {
+            missiles.removeAll(missilesToRemove);
+            enemies.removeAll(enemiesToRemove);
+        }
     }
 
     private void destroyMissiles() {

@@ -1,5 +1,7 @@
 package cz.cvut.fit.niadp.mvcgame.model.gameObjects.familyA;
 
+import cz.cvut.fit.niadp.mvcgame.config.MvcGameConfig;
+import cz.cvut.fit.niadp.mvcgame.model.Collider;
 import cz.cvut.fit.niadp.mvcgame.model.Position;
 import cz.cvut.fit.niadp.mvcgame.model.gameObjects.AbsMissile;
 import cz.cvut.fit.niadp.mvcgame.strategy.IMovingStrategy;
@@ -19,5 +21,14 @@ public class MissileA extends AbsMissile {
         movingStrategy.updatePosition(this);
     }
 
+    @Override
+    public Collider getCollider() {
+        // Create a fresh collider every time we check, using current position
+        return new Collider(
+                this.position,
+                MvcGameConfig.MISSILE_COLLIDER_WIDTH,
+                MvcGameConfig.MISSILE_COLLIDER_HEIGHT
+        );
+    }
 
 }

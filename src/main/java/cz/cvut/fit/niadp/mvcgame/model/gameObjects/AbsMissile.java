@@ -5,18 +5,15 @@ import cz.cvut.fit.niadp.mvcgame.model.Collider;
 import cz.cvut.fit.niadp.mvcgame.model.Position;
 import cz.cvut.fit.niadp.mvcgame.visitor.IVisitor;
 
-public abstract class AbsMissile extends LifetimeLimitedGameObject {
+public abstract class AbsMissile extends LifetimeLimitedGameObject implements ICollidable{
 
     private final double initAngle;
     private final int initVelocity;
-
-    protected Collider collider;
 
     protected AbsMissile(Position initPosition, double initAngle, int initVelocity) {
         super(initPosition);
         this.initAngle = initAngle;
         this.initVelocity = initVelocity;
-        this.collider = new Collider(this.position, MvcGameConfig.MISSILE_COLLIDER_WIDTH, MvcGameConfig.MISSILE_COLLIDER_HEIGHT);
     }
 
     public abstract void move();
