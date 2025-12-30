@@ -8,8 +8,6 @@ import cz.cvut.fit.niadp.mvcgame.visitor.IVisitor;
 public class Particle extends LifetimeLimitedGameObject {
 
     private final ParticleType type;
-
-    // We need the origin to calculate displacement from start
     private final Position origin;
     private final double angle;
     private final int velocity;
