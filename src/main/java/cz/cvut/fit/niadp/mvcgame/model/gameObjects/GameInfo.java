@@ -1,11 +1,21 @@
 package cz.cvut.fit.niadp.mvcgame.model.gameObjects;
 
+import cz.cvut.fit.niadp.mvcgame.config.MvcGameConfig;
+import cz.cvut.fit.niadp.mvcgame.config.MvcGameKeys;
+import cz.cvut.fit.niadp.mvcgame.model.Collider;
 import cz.cvut.fit.niadp.mvcgame.model.Position;
 import cz.cvut.fit.niadp.mvcgame.visitor.IVisitor;
 
 public class GameInfo extends GameObject  {
     private int shotCount = 0;
     private int score = 0;
+
+    private Collider collider = new Collider(   MvcGameConfig.ENEMY_SPAWN_MIN_X,
+                                                MvcGameConfig.ENEMY_SPAWN_MIN_Y,
+                                                MvcGameConfig.ENEMY_SPAWN_MAX_X,
+                                                MvcGameConfig.ENEMY_SPAWN_MAX_Y );
+
+    private final String legend = MvcGameKeys.LEGEND;
 
     public GameInfo(Position position) {
         this.position = position;
@@ -21,6 +31,9 @@ public class GameInfo extends GameObject  {
         return new GameInfo(this.position, this.score, this.shotCount);
     }
 
+    public Collider getCollider() {
+        return collider;
+    }
 
     public void incMissilesShot() { shotCount++; }
 

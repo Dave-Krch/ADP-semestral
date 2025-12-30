@@ -5,19 +5,21 @@ import cz.cvut.fit.niadp.mvcgame.command.gameCommands.RestoreGameSnapshotCommand
 import cz.cvut.fit.niadp.mvcgame.command.gameCommands.StoreGameSnapshotCommand;
 import cz.cvut.fit.niadp.mvcgame.command.gameCommands.ToggleMovingStrategyCommand;
 import cz.cvut.fit.niadp.mvcgame.command.gameCommands.ToggleShootingModeCommand;
-import cz.cvut.fit.niadp.mvcgame.memento.CareTaker;
 import cz.cvut.fit.niadp.mvcgame.model.IGameModel;
 
 import java.util.List;
 
 import cz.cvut.fit.niadp.mvcgame.config.MvcGameKeys;
+import cz.cvut.fit.niadp.mvcgame.view.GameView;
 
 public class GameController {
 
     private final IGameModel model;
+    private final GameView view;
 
-    public GameController(IGameModel model) {
+    public GameController(IGameModel model, GameView gameView) {
         this.model = model;
+        this.view = gameView;
     }
 
     public void processPressedKeys(List<String> pressedKeysCodes) {
@@ -58,6 +60,9 @@ public class GameController {
                     break;
                 case MvcGameKeys.UNDO_LAST_COMMAND:
                     model.undoLastCommand();
+                    break;
+                case MvcGameKeys.DEBUG_MODE_KEY:
+                    view.switchDrawerModes();
                     break;
                 case MvcGameKeys.EXIT_KEY:
                     System.exit(0);

@@ -30,4 +30,9 @@ public class MvcGameConfig {
     public static final int ENEMY_LARGE_COLLIDER_WIDTH = 45;
     public static final int ENEMY_STANDARD_VALUE = 200;
     public static final int ENEMY_LARGE_VALUE = 500;
+
+    public static final int ENEMY_SPAWN_MIN_X = 200;
+    public static final int ENEMY_SPAWN_MAX_X = 600;
+    public static final int ENEMY_SPAWN_MIN_Y = 200;
+    public static final int ENEMY_SPAWN_MAX_Y = 200;
 }

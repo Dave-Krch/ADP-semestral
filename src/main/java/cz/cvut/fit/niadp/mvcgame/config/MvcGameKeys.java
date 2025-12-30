@@ -14,4 +14,7 @@ public class MvcGameKeys {
     public static final String RESTORE_GAME_SNAPSHOT_KEY = "R";
     public static final String UNDO_LAST_COMMAND = "Z";
     public static final String EXIT_KEY = "ESCAPE";
+    public static final String DEBUG_MODE_KEY = "Q";
+
+    public static final String LEGEND = "Cannon: UP, DOWN, SPACE, A, Y, F, D, M, N\nGame: N, S, R, Z, ESCAPE, Q";
 }

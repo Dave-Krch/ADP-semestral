@@ -136,9 +136,21 @@ public class GameModel implements IGameModel {
         return Stream.concat(Stream.of(cannon), missiles.stream()).toList();
     }
 
+    @Override
     public GameInfo getGameInfo() {
         return gameInfo;
     }
+
+    @Override
+    public AbsCannon getCanon() {
+        return cannon;
+    }
+
+    @Override
+    public List<AbsMissile> getMissiles() {
+        return missiles;
+    }
+
 
     @Override
     public List<AbsEnemy> getEnemies() {
@@ -227,4 +239,5 @@ public class GameModel implements IGameModel {
             notifyObservers();
         }
     }
+
 }

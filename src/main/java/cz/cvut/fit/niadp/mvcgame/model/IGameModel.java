@@ -1,9 +1,7 @@
 package cz.cvut.fit.niadp.mvcgame.model;
 
 import cz.cvut.fit.niadp.mvcgame.command.AbstractGameCommand;
-import cz.cvut.fit.niadp.mvcgame.model.gameObjects.AbsEnemy;
-import cz.cvut.fit.niadp.mvcgame.model.gameObjects.GameInfo;
-import cz.cvut.fit.niadp.mvcgame.model.gameObjects.GameObject;
+import cz.cvut.fit.niadp.mvcgame.model.gameObjects.*;
 import cz.cvut.fit.niadp.mvcgame.observer.IObservable;
 import cz.cvut.fit.niadp.mvcgame.strategy.IMovingStrategy;
 
@@ -23,6 +21,10 @@ public interface IGameModel extends IObservable {
 
     GameInfo getGameInfo();
 
+    AbsCannon getCanon();
+
+    List<AbsMissile> getMissiles();
+
     List<AbsEnemy> getEnemies();
 
     IMovingStrategy getMovingStrategy();
@@ -32,4 +34,5 @@ public interface IGameModel extends IObservable {
     void setMemento(Object memento);
     void registerCommand(AbstractGameCommand command);
     void undoLastCommand();
+
 }

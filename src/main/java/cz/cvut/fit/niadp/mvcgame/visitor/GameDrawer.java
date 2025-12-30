@@ -1,6 +1,7 @@
 package cz.cvut.fit.niadp.mvcgame.visitor;
 
 import cz.cvut.fit.niadp.mvcgame.bridge.IGameGraphics;
+import cz.cvut.fit.niadp.mvcgame.model.Collider;
 import cz.cvut.fit.niadp.mvcgame.model.Position;
 import cz.cvut.fit.niadp.mvcgame.model.Vector;
 import cz.cvut.fit.niadp.mvcgame.model.gameObjects.*;
@@ -10,7 +11,7 @@ import static cz.cvut.fit.niadp.mvcgame.config.MvcGameResources.*;
 
 public class GameDrawer implements IVisitor {
 
-    private IGameGraphics gameGraphics;
+    protected IGameGraphics gameGraphics;
 
     public void setGraphicsContext(IGameGraphics gameGraphics) {
         this.gameGraphics = gameGraphics;
