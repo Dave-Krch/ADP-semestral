@@ -9,7 +9,6 @@ import cz.cvut.fit.niadp.mvcgame.visitor.IVisitor;
 public class EnemyLargeA extends AbsEnemy {
     public EnemyLargeA(Position position) {
         this.position = position;
-        this.collider = new Collider(this.position, MvcGameConfig.ENEMY_LARGE_COLLIDER_WIDTH, MvcGameConfig.ENEMY_LARGE_COLLIDER_HEIGHT);
     }
 
     @Override
@@ -25,5 +24,15 @@ public class EnemyLargeA extends AbsEnemy {
     @Override
     public AbsEnemy clone() {
         return new EnemyLargeA(this.position.clone());
+    }
+
+    @Override
+    public int getWidth() {
+        return MvcGameConfig.ENEMY_LARGE_COLLIDER_WIDTH;
+    }
+
+    @Override
+    public int getHeight() {
+        return MvcGameConfig.ENEMY_LARGE_COLLIDER_HEIGHT;
     }
 }

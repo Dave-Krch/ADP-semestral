@@ -10,7 +10,6 @@ public class EnemyStandardA extends AbsEnemy {
 
     public EnemyStandardA(Position position) {
         this.position = position;
-        this.collider = new Collider(this.position, MvcGameConfig.ENEMY_NORMAL_COLLIDER_WIDTH, MvcGameConfig.ENEMY_NORMAL_COLLIDER_HEIGHT);
     }
 
     @Override
@@ -26,5 +25,15 @@ public class EnemyStandardA extends AbsEnemy {
     @Override
     public AbsEnemy clone() {
         return new EnemyStandardA(this.position);
+    }
+
+    @Override
+    public int getWidth() {
+        return MvcGameConfig.ENEMY_NORMAL_COLLIDER_WIDTH;
+    }
+
+    @Override
+    public int getHeight() {
+        return MvcGameConfig.ENEMY_NORMAL_COLLIDER_HEIGHT;
     }
 }
