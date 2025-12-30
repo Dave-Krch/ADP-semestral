@@ -20,6 +20,7 @@ funkce:
     velky enemies
     random rozmisteni enemies - pomoci builderu
     score
+    debug mode
 
 
  Přidat nepřátele DONE

@@ -15,7 +15,9 @@ public class GameDrawerDebug extends GameDrawer {
 
     @Override
     public void visitGameInfo(GameInfo gameInfo) {
-        super.visitGameInfo(gameInfo);
+        gameGraphics.drawText(    "Score:         " + gameInfo.getScore() + "\n" +
+                "Shot count: " + gameInfo.getShotCount() + "\n\n" +
+                gameInfo.legend, gameInfo.getPosition());
         drawCollider(gameInfo.getCollider());
     }
 

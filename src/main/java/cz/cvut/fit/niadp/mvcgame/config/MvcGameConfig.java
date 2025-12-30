@@ -8,8 +8,8 @@ public class MvcGameConfig {
     public static final int MOVE_STEP = 10;
     public static final int CANNON_POS_X = 300;
     public static final int CANNON_POS_Y = MAX_Y / 2;
-    public static final int GAMEINF_POS_X = MAX_X - 300;
-    public static final int GAMEINF_POS_Y = 200;
+    public static final int GAMEINF_POS_X = MAX_X - 400;
+    public static final int GAMEINF_POS_Y = 30;
     public static final double INIT_ANGLE = 0;
     public static final int INIT_POWER = 10;
     public static final double ANGLE_STEP = Math.PI / 18;
@@ -31,8 +31,8 @@ public class MvcGameConfig {
     public static final int ENEMY_STANDARD_VALUE = 200;
     public static final int ENEMY_LARGE_VALUE = 500;
 
-    public static final int ENEMY_SPAWN_MIN_X = 200;
-    public static final int ENEMY_SPAWN_MAX_X = 600;
+    public static final int ENEMY_SPAWN_MIN_X = 400;
+    public static final int ENEMY_SPAWN_MAX_X = 1800;
     public static final int ENEMY_SPAWN_MIN_Y = 200;
-    public static final int ENEMY_SPAWN_MAX_Y = 200;
+    public static final int ENEMY_SPAWN_MAX_Y = 1000;
 }

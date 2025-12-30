@@ -15,7 +15,7 @@ public class GameInfo extends GameObject  {
                                                 MvcGameConfig.ENEMY_SPAWN_MAX_X,
                                                 MvcGameConfig.ENEMY_SPAWN_MAX_Y );
 
-    private final String legend = MvcGameKeys.LEGEND;
+    public final String legend = MvcGameKeys.LEGEND;
 
     public GameInfo(Position position) {
         this.position = position;
