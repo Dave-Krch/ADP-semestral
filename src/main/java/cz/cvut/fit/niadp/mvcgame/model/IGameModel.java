@@ -27,6 +27,8 @@ public interface IGameModel extends IObservable {
 
     List<AbsEnemy> getEnemies();
 
+    List<Particle> getParticles();
+
     IMovingStrategy getMovingStrategy();
     void toggleMovingStrategy();
     void toggleShootingMode();

@@ -13,14 +13,14 @@ Testy
 
 
 vzory:
- builder na model
- protoype - position, collider, enemy, gameInfo
+ builder na model DONE
+ protoype - position, collider, enemy, gameInfo DONE
 
 funkce:
-    velky enemies
-    random rozmisteni enemies - pomoci builderu
-    score
-    debug mode
+    velky enemies DONE
+    random rozmisteni enemies - pomoci builderu DONE
+    score DONE
+    debug mode DONE - zobrazi se collidery
 
 
  Přidat nepřátele DONE

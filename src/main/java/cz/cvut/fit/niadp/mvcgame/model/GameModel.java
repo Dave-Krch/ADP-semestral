@@ -4,6 +4,8 @@ import cz.cvut.fit.niadp.mvcgame.abstractFactory.GameObjectsFactoryA;
 import cz.cvut.fit.niadp.mvcgame.abstractFactory.IGameObjectsFactory;
 import cz.cvut.fit.niadp.mvcgame.command.AbstractGameCommand;
 import cz.cvut.fit.niadp.mvcgame.config.MvcGameConfig;
+import cz.cvut.fit.niadp.mvcgame.flyweight.ParticleFlyweightFactory;
+import cz.cvut.fit.niadp.mvcgame.flyweight.ParticleType;
 import cz.cvut.fit.niadp.mvcgame.model.gameObjects.*;
 import cz.cvut.fit.niadp.mvcgame.observer.IObserver;
 import cz.cvut.fit.niadp.mvcgame.strategy.IMovingStrategy;
@@ -11,12 +13,7 @@ import cz.cvut.fit.niadp.mvcgame.strategy.RandomMovingStrategy;
 import cz.cvut.fit.niadp.mvcgame.strategy.RealisticMovingStrategy;
 import cz.cvut.fit.niadp.mvcgame.strategy.SimpleMovingStrategy;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Queue;
-import java.util.Set;
-import java.util.Stack;
+import java.util.*;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.stream.Stream;
 
@@ -27,9 +24,10 @@ public class GameModel implements IGameModel {
     private final List<AbsMissile> missiles;
     private List<AbsEnemy> enemies;
     private final Set<IObserver> observers;
+    private final List<Particle> particles;
     private final IGameObjectsFactory gameObjectsFactory;
     private IMovingStrategy movingStrategy;
-
+    Random rand = new Random();
     private final Queue<AbstractGameCommand> unexecutedCommands;
     private final Stack<AbstractGameCommand> executedCommands;
 
@@ -40,6 +38,8 @@ public class GameModel implements IGameModel {
         observers = new HashSet<>();
         missiles = new ArrayList<>();
         enemies = new ArrayList<>();
+        particles = new ArrayList<>();
+
         movingStrategy = new SimpleMovingStrategy();
 
         unexecutedCommands = new LinkedBlockingQueue<>();
@@ -48,6 +48,7 @@ public class GameModel implements IGameModel {
 
     public void update() {
         moveMissiles();
+        moveParticles();
         checkCollisions();
         executeCommands();
     }
@@ -72,6 +73,7 @@ public class GameModel implements IGameModel {
             for (AbsEnemy enemy : enemies) {
                 if(missile.getCollider().collided(enemy.getCollider())) {
                     gameInfo.addScore(enemy.getScoreValue());
+                    bomboclat(enemy.getPosition());
                     missilesToRemove.add(missile);
                     enemiesToRemove.add(enemy);
                 }
@@ -81,6 +83,30 @@ public class GameModel implements IGameModel {
         if(!missilesToRemove.isEmpty() || !enemiesToRemove.isEmpty()) {
             missiles.removeAll(missilesToRemove);
             enemies.removeAll(enemiesToRemove);
+        }
+    }
+
+    private void moveParticles() {
+        particles.forEach(Particle::move);
+        particles.removeIf(p -> p.getAge() > 1000);
+    }
+
+    private void bomboclat(Position pos) {
+        ParticleType fireType = ParticleFlyweightFactory.getParticleType(
+                "fire", "images/fire.png", 5, 10
+        );
+
+        for (int i = 0; i < MvcGameConfig.PARTICLE_COUNT; i++) {
+            double angle = rand.nextDouble() * 2 * Math.PI;
+
+            int velocity = 10 + rand.nextInt(10);
+
+            particles.add(new Particle(
+                    pos,
+                    fireType,
+                    angle,
+                    velocity
+            ));
         }
     }
 
@@ -155,6 +181,11 @@ public class GameModel implements IGameModel {
     @Override
     public List<AbsEnemy> getEnemies() {
         return enemies;
+    }
+
+    @Override
+    public List<Particle> getParticles() {
+        return particles;
     }
 
     @Override

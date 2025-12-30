@@ -51,6 +51,9 @@ public class GameView implements IObserver {
             model.getEnemies().forEach(absEnemy -> {
                 absEnemy.acceptVisitor(currentGameDrawer);
             });
+            model.getParticles().forEach(particle -> {
+                particle.acceptVisitor(currentGameDrawer);
+            });
             model.getGameInfo().acceptVisitor(currentGameDrawer);
 
         }

@@ -100,6 +100,11 @@ public class GameModelProxy implements IGameModel {
     public List<AbsEnemy> getEnemies() { return subject.getEnemies(); }
 
     @Override
+    public List<Particle> getParticles() {
+        return subject.getParticles();
+    }
+
+    @Override
     public IMovingStrategy getMovingStrategy() {
         return subject.getMovingStrategy();
     }

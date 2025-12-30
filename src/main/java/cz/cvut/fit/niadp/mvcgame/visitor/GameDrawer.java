@@ -36,6 +36,11 @@ public class GameDrawer implements IVisitor {
     @Override
     public void visitGameInfo(GameInfo gameInfo) { drawGameInfo(gameInfo); }
 
+    @Override
+    public void visitParticle(Particle particle) {
+        gameGraphics.drawImage(particle.getImageResource(), particle.getPosition());
+    }
+
     private void drawGameObject(GameObject gameObject, String resource) {
         gameGraphics.drawImage(resource, gameObject.getPosition());
     }

@@ -17,4 +17,5 @@ public abstract class LifetimeLimitedGameObject extends GameObject {
     public long getAge() {
         return ChronoUnit.MILLIS.between(bornAt, LocalDateTime.now());
     }
+
 }
