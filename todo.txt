@@ -22,6 +22,10 @@ funkce:
     score DONE
     debug mode DONE - zobrazi se collidery
 
+testy:
+    1) Flyweight test -> testuje jestli se pri vytvoreni stejnych/ruznych fl type schoduji
+    2) Mock model builder test -> vytvori nekolik enemies a testuje jestli jich je spravny pocet a jestli nekoliduji
+
 
  Přidat nepřátele DONE
 

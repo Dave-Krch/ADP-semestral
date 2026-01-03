@@ -17,18 +17,22 @@ public class GameInfo extends GameObject  {
 
     public final String legend = MvcGameKeys.LEGEND;
 
-    public GameInfo(Position position) {
+    private AbsCannon cannon;
+
+    public GameInfo(Position position, AbsCannon canon) {
         this.position = position;
+        this.cannon = canon;
     }
 
-    public GameInfo(Position position, int score, int shotCount) {
+    public GameInfo(Position position, int score, int shotCount, AbsCannon cannon) {
         this.position = position;
         this.score = score;
         this.shotCount = shotCount;
+        this.cannon = cannon;
     }
 
     public GameInfo clone() {
-        return new GameInfo(this.position, this.score, this.shotCount);
+        return new GameInfo(this.position, this.score, this.shotCount, this.cannon);
     }
 
     public Collider getCollider() {
@@ -55,6 +59,14 @@ public class GameInfo extends GameObject  {
 
     public void addScore(int count) {
         this.score += count;
+    }
+
+    public double getCannonAngle() {
+        return cannon.getAngle();
+    }
+
+    public int getCannonPower() {
+        return cannon.getPower();
     }
 
     @Override

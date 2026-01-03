@@ -71,6 +71,12 @@ public class CannonA extends AbsCannon {
     }
 
     @Override
+    public double getAngle() { return angle; }
+
+    @Override
+    public int getPower() { return power; }
+
+    @Override
     public void toggleShootingMode() {
         if (shootingMode instanceof SingleShootingMode) {
             shootingMode = DOUBLE_SHOOTING_MODE;

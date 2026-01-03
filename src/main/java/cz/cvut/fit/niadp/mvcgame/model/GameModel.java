@@ -34,7 +34,7 @@ public class GameModel implements IGameModel {
     public GameModel() {
         gameObjectsFactory = new GameObjectsFactoryA(this);
         cannon = gameObjectsFactory.createCannon();
-        gameInfo = new GameInfo(new Position(MvcGameConfig.GAMEINF_POS_X, MvcGameConfig.GAMEINF_POS_Y));
+        gameInfo = new GameInfo(new Position(MvcGameConfig.GAMEINF_POS_X, MvcGameConfig.GAMEINF_POS_Y), cannon);
         observers = new HashSet<>();
         missiles = new ArrayList<>();
         enemies = new ArrayList<>();

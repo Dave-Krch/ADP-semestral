@@ -59,6 +59,7 @@ public class MvcGameJavaFxLauncher extends Application {
                 theMvcGame.processPressedKeys(pressedKeysCodes);
             }
         }.start();
+
         stage.show();
     }
 
