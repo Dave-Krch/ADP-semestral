@@ -51,9 +51,12 @@ public class GameController {
                     break;
                 case MvcGameKeys.STORE_GAME_SNAPSHOT_KEY:
                     model.registerCommand(new StoreGameSnapshotCommand(model));
+                    //pressedKeysCodes.remove(MvcGameKeys.STORE_GAME_SNAPSHOT_KEY);
                     break;
                 case MvcGameKeys.LOAD_GAME_SNAPSHOT_KEY:
-                    model.registerCommand(new LoadGameSnapshotFromFileCommand(model));
+                    String path = view.openFileDialog();
+                    model.registerCommand(new LoadGameSnapshotFromFileCommand(model, path));
+                    //pressedKeysCodes.remove(MvcGameKeys.LOAD_GAME_SNAPSHOT_KEY);
                     break;
                 case MvcGameKeys.RESTORE_GAME_SNAPSHOT_KEY:
                     model.registerCommand(new RestoreGameSnapshotCommand(model));

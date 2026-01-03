@@ -6,6 +6,9 @@ import cz.cvut.fit.niadp.mvcgame.controller.GameController;
 import cz.cvut.fit.niadp.mvcgame.observer.IObserver;
 import cz.cvut.fit.niadp.mvcgame.visitor.GameDrawer;
 import cz.cvut.fit.niadp.mvcgame.visitor.GameDrawerDebug;
+import javafx.stage.FileChooser;
+
+import java.io.File;
 
 public class GameView implements IObserver {
 
@@ -69,5 +72,27 @@ public class GameView implements IObserver {
     @Override
     public void update() {
         render();
+    }
+
+    public String openFileDialog() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Load Game");
+
+        File currentDir = new File(System.getProperty("user.dir"));
+        if (currentDir.exists()) {
+            fileChooser.setInitialDirectory(currentDir);
+        }
+
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Game Save Files", "*.dat"),
+                new FileChooser.ExtensionFilter("All Files", "*.*")
+        );
+
+        File selectedFile = fileChooser.showOpenDialog(null);
+
+        if (selectedFile != null) {
+            return selectedFile.getPath();
+        }
+        return null;
     }
 }
