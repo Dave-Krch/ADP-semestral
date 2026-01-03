@@ -7,6 +7,7 @@ import cz.cvut.fit.niadp.mvcgame.model.Vector;
 import cz.cvut.fit.niadp.mvcgame.model.gameObjects.AbsCannon;
 import cz.cvut.fit.niadp.mvcgame.model.gameObjects.AbsMissile;
 import cz.cvut.fit.niadp.mvcgame.state.DoubleShootingMode;
+import cz.cvut.fit.niadp.mvcgame.state.IShootingMode;
 import cz.cvut.fit.niadp.mvcgame.state.SingleShootingMode;
 
 import java.util.ArrayList;
@@ -25,6 +26,20 @@ public class CannonA extends AbsCannon {
         angle = MvcGameConfig.INIT_ANGLE;
         power = MvcGameConfig.INIT_POWER;
         shootingMode = SINGLE_SHOOTING_MODE;
+        shootingBatch = new ArrayList<>();
+    }
+
+    public CannonA(Position position,
+                   IGameObjectsFactory gameObjectsFactory,
+                   double angle,
+                   int power,
+                   IShootingMode shootingMode
+                   ) {
+        this.position = position;
+        this.gameObjectsFactory = gameObjectsFactory;
+        this.angle = angle;
+        this.power = power;
+        this.shootingMode = shootingMode;
         shootingBatch = new ArrayList<>();
     }
 
@@ -75,6 +90,17 @@ public class CannonA extends AbsCannon {
 
     @Override
     public int getPower() { return power; }
+
+    @Override
+    public void setAngle(double angle) { this.angle = angle; }
+
+    @Override
+    public void setPower(int power) { this.power = power; }
+
+    @Override
+    public AbsCannon clone() {
+        return new CannonA(position.clone(), gameObjectsFactory, angle, power, shootingMode);
+    }
 
     @Override
     public void toggleShootingMode() {

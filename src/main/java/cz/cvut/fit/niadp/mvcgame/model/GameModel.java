@@ -8,6 +8,7 @@ import cz.cvut.fit.niadp.mvcgame.flyweight.ParticleFlyweightFactory;
 import cz.cvut.fit.niadp.mvcgame.flyweight.ParticleType;
 import cz.cvut.fit.niadp.mvcgame.model.gameObjects.*;
 import cz.cvut.fit.niadp.mvcgame.observer.IObserver;
+import cz.cvut.fit.niadp.mvcgame.state.IShootingMode;
 import cz.cvut.fit.niadp.mvcgame.strategy.IMovingStrategy;
 import cz.cvut.fit.niadp.mvcgame.strategy.RandomMovingStrategy;
 import cz.cvut.fit.niadp.mvcgame.strategy.RealisticMovingStrategy;
@@ -231,6 +232,10 @@ public class GameModel implements IGameModel {
 
         private GameInfo gameInfo;
 
+        private double cannonAngle;
+        private int cannonPower;
+        private IShootingMode shootingMode;
+
         // game snapshot (gameobjects, score, strategy, cannon state)
     }
 
@@ -245,6 +250,11 @@ public class GameModel implements IGameModel {
         }
 
         gameModelSnapshot.gameInfo = gameInfo.clone();
+
+        gameModelSnapshot.cannonAngle = cannon.getAngle();
+        gameModelSnapshot.cannonPower = cannon.getPower();
+        gameModelSnapshot.shootingMode = cannon.getShootingMode();
+
         return gameModelSnapshot;
     }
 
@@ -252,6 +262,9 @@ public class GameModel implements IGameModel {
         Memento gameModelSnapshot = (Memento) memento;
         cannon.getPosition().setX((gameModelSnapshot).cannonPositionX);
         cannon.getPosition().setY((gameModelSnapshot).cannonPositionY);
+        cannon.setShootingMode(gameModelSnapshot.shootingMode);
+        cannon.setAngle(gameModelSnapshot.cannonAngle);
+        cannon.setPower(gameModelSnapshot.cannonPower);
 
         enemies = gameModelSnapshot.enemies;
 
