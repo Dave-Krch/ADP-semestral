@@ -13,10 +13,16 @@ public class ModelBuilderRandomPositions implements IModelBuilder {
 
     private GameModel model;
 
-    private final Random random = new Random();
+    private final Random random;
 
     public ModelBuilderRandomPositions() {
         this.reset();
+        this.random = new Random();
+    }
+
+    public ModelBuilderRandomPositions(Random random) {
+        this.reset();
+        this.random = random;
     }
 
     @Override

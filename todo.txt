@@ -15,12 +15,14 @@ Testy
 vzory:
  builder na model DONE
  protoype - position, collider, enemy, gameInfo DONE
+ flyweight
 
 funkce:
     velky enemies DONE
     random rozmisteni enemies - pomoci builderu DONE
     score DONE
     debug mode DONE - zobrazi se collidery
+    particles
 
 testy:
     1) Flyweight test -> testuje jestli se pri vytvoreni stejnych/ruznych fl type schoduji
