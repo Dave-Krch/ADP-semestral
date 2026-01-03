@@ -6,7 +6,9 @@ import cz.cvut.fit.niadp.mvcgame.model.Collider;
 import cz.cvut.fit.niadp.mvcgame.model.Position;
 import cz.cvut.fit.niadp.mvcgame.visitor.IVisitor;
 
-public class GameInfo extends GameObject  {
+import java.io.Serializable;
+
+public class GameInfo extends GameObject implements Serializable {
     private int shotCount = 0;
     private int score = 0;
 

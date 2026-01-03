@@ -138,4 +138,16 @@ public class GameModelProxy implements IGameModel {
     public void undoLastCommand() {
         subject.undoLastCommand();
     }
+
+    @Override
+    public void saveToFile(String path) { subject.saveToFile(path); }
+
+    @Override
+    public void loadFromFile(String path) { subject.loadFromFile(path); }
+
+    @Override
+    public void save() { subject.save(); }
+
+    @Override
+    public void load() { subject.load(); }
 }

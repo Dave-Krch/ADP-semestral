@@ -37,4 +37,9 @@ public interface IGameModel extends IObservable {
     void registerCommand(AbstractGameCommand command);
     void undoLastCommand();
 
+    void saveToFile(String path);
+    void loadFromFile(String path);
+    void save();
+    void load();
+
 }

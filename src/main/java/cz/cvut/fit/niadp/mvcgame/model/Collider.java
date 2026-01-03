@@ -3,7 +3,9 @@ package cz.cvut.fit.niadp.mvcgame.model;
 import cz.cvut.fit.niadp.mvcgame.visitor.IVisitable;
 import cz.cvut.fit.niadp.mvcgame.visitor.IVisitor;
 
-public class Collider {
+import java.io.Serializable;
+
+public class Collider implements Serializable {
     private final Position topLeft;
     private final Position bottomRight;
 

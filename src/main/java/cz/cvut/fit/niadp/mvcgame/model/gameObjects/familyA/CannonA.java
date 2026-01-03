@@ -15,7 +15,7 @@ import java.util.List;
 
 public class CannonA extends AbsCannon {
 
-    private final IGameObjectsFactory gameObjectsFactory;
+    private transient final IGameObjectsFactory gameObjectsFactory;
     private double angle;
     private int power;
     private final List<AbsMissile> shootingBatch;

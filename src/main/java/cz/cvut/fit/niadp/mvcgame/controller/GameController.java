@@ -1,10 +1,7 @@
 package cz.cvut.fit.niadp.mvcgame.controller;
 
 import cz.cvut.fit.niadp.mvcgame.command.cannonCommannds.*;
-import cz.cvut.fit.niadp.mvcgame.command.gameCommands.RestoreGameSnapshotCommand;
-import cz.cvut.fit.niadp.mvcgame.command.gameCommands.StoreGameSnapshotCommand;
-import cz.cvut.fit.niadp.mvcgame.command.gameCommands.ToggleMovingStrategyCommand;
-import cz.cvut.fit.niadp.mvcgame.command.gameCommands.ToggleShootingModeCommand;
+import cz.cvut.fit.niadp.mvcgame.command.gameCommands.*;
 import cz.cvut.fit.niadp.mvcgame.model.IGameModel;
 
 import java.util.List;
@@ -54,6 +51,9 @@ public class GameController {
                     break;
                 case MvcGameKeys.STORE_GAME_SNAPSHOT_KEY:
                     model.registerCommand(new StoreGameSnapshotCommand(model));
+                    break;
+                case MvcGameKeys.LOAD_GAME_SNAPSHOT_KEY:
+                    model.registerCommand(new LoadGameSnapshotFromFileCommand(model));
                     break;
                 case MvcGameKeys.RESTORE_GAME_SNAPSHOT_KEY:
                     model.registerCommand(new RestoreGameSnapshotCommand(model));

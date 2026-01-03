@@ -14,6 +14,10 @@ import cz.cvut.fit.niadp.mvcgame.strategy.RandomMovingStrategy;
 import cz.cvut.fit.niadp.mvcgame.strategy.RealisticMovingStrategy;
 import cz.cvut.fit.niadp.mvcgame.strategy.SimpleMovingStrategy;
 
+import java.io.*;
+import java.nio.file.Paths;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.stream.Stream;
@@ -31,6 +35,9 @@ public class GameModel implements IGameModel {
     Random rand = new Random();
     private final Queue<AbstractGameCommand> unexecutedCommands;
     private final Stack<AbstractGameCommand> executedCommands;
+
+    //Test
+    private String lastSavePath = null;
 
     public GameModel() {
         gameObjectsFactory = new GameObjectsFactoryA(this);
@@ -224,7 +231,7 @@ public class GameModel implements IGameModel {
         cannon.toggleShootingMode();
     }
 
-    private static class Memento {
+    private static class Memento implements Serializable {
         private int cannonPositionX;
         private int cannonPositionY;
 
@@ -284,4 +291,56 @@ public class GameModel implements IGameModel {
         }
     }
 
+    @Override
+    public void saveToFile(String path) {
+        Object memento = createMemento();
+
+        try (FileOutputStream fileOut = new FileOutputStream(path);
+             ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
+
+            out.writeObject(memento);
+            System.out.println("Game saved successfully to " + path);
+
+        } catch (IOException i) {
+            i.printStackTrace();
+        }
+    }
+
+    @Override
+    public void loadFromFile(String path) {
+        try (FileInputStream fileIn = new FileInputStream(path);
+             ObjectInputStream in = new ObjectInputStream(fileIn)) {
+
+            Object memento = in.readObject();
+
+            setMemento(memento);
+
+            notifyObservers();
+            System.out.println("Game loaded successfully from " + path);
+
+        } catch (IOException | ClassNotFoundException i) {
+            i.printStackTrace();
+        }
+    }
+
+    @Override
+    public void save() {
+        LocalDateTime now = LocalDateTime.now();
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss");
+        String timestamp = now.format(formatter);
+
+        String filename = "mvcgame_save_" + timestamp + ".dat";
+
+        String fullPath = Paths.get(System.getProperty("user.dir"), filename).toString();
+
+        lastSavePath = fullPath;
+
+        this.saveToFile(fullPath);
+    }
+
+    @Override
+    public void load() {
+        loadFromFile(lastSavePath);
+    }
 }

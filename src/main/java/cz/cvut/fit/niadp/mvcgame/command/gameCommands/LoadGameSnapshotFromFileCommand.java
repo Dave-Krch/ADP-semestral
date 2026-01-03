@@ -1,18 +1,16 @@
 package cz.cvut.fit.niadp.mvcgame.command.gameCommands;
 
 import cz.cvut.fit.niadp.mvcgame.command.AbstractGameCommand;
-import cz.cvut.fit.niadp.mvcgame.memento.CareTaker;
 import cz.cvut.fit.niadp.mvcgame.model.IGameModel;
 
-public class StoreGameSnapshotCommand extends AbstractGameCommand {
+public class LoadGameSnapshotFromFileCommand extends AbstractGameCommand {
 
-    public StoreGameSnapshotCommand(IGameModel model) {
+    public LoadGameSnapshotFromFileCommand(IGameModel model) {
         this.model = model;
     }
 
     @Override
     protected void execute() {
-        CareTaker.getInstance().createMemento();
-        model.save();
+        model.load();
     }
 }

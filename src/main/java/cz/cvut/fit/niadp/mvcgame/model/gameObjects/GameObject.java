@@ -4,7 +4,9 @@ import cz.cvut.fit.niadp.mvcgame.model.Position;
 import cz.cvut.fit.niadp.mvcgame.model.Vector;
 import cz.cvut.fit.niadp.mvcgame.visitor.IVisitable;
 
-public abstract class GameObject implements IVisitable {
+import java.io.Serializable;
+
+public abstract class GameObject implements IVisitable, Serializable {
 
     protected Position position;
 

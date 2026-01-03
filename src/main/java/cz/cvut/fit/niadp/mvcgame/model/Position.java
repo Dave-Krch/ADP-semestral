@@ -1,6 +1,8 @@
 package cz.cvut.fit.niadp.mvcgame.model;
 
-public class Position {
+import java.io.Serializable;
+
+public class Position implements Serializable {
     private int dimX = 0;
 	private int dimY = 0;
 	
