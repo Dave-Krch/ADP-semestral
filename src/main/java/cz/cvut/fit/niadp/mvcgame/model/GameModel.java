@@ -121,7 +121,10 @@ public class GameModel implements IGameModel {
     private void destroyMissiles() {
         missiles.removeAll(
             missiles.stream().filter(missile ->
-                missile.getPosition().getX() > MvcGameConfig.MAX_X ||  missile.getPosition().getX() < MvcGameConfig.MIN_X
+                missile.getPosition().getX() > MvcGameConfig.MAX_X ||
+                missile.getPosition().getX() < MvcGameConfig.MIN_X ||
+                missile.getPosition().getY() > MvcGameConfig.MAX_Y ||
+                missile.getPosition().getY() < MvcGameConfig.MIN_Y
             ).toList()
         );
     }
